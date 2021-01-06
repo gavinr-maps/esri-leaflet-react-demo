@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.scss";
+import Map from "./Map.js";
 
 function App() {
   return (
     <div className="App">
-      Esri Leaflet React Demo
+      <Map />
     </div>
   );
 }
