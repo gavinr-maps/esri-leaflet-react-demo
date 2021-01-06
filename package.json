@@ -1,7 +1,12 @@
 {
   "name": "esri-leaflet-react-demo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "homepage": ".",
+  "author": {
+    "name": "Gavin Rehkemper",
+    "url": "https://gavinr.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
