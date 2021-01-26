@@ -8,10 +8,10 @@
     "url": "https://gavinr.com"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
-    "esri-leaflet": "^2.5.3",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "esri-leaflet": "^3.0.0",
     "leaflet": "^1.7.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
