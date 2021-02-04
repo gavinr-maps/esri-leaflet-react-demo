@@ -1,7 +1,8 @@
 // @refresh reset
 import { useEffect, useRef } from "react";
 import { Map as LeafletMap, Icon, Marker } from "leaflet";
-import { VERSION, BasemapLayer, FeatureLayer } from "esri-leaflet";
+import { FeatureLayer } from "esri-leaflet";
+import { vectorBasemapLayer } from "esri-leaflet-vector";
 import "leaflet/dist/leaflet.css";
 
 import icon from "leaflet/dist/images/marker-icon.png";
@@ -13,8 +14,6 @@ function Map() {
   useEffect(() => {
     // debugger;
     if (mapRef.current !== null) {
-      console.log("esri-leaflet version", VERSION);
-
       // The default icon does not work due to webpack issues
       let DefaultIcon = new Icon({
         iconUrl: icon,
@@ -28,8 +27,9 @@ function Map() {
       map.setView([53.35014, -6.266155], 8);
 
       // Add a basemap
-      const basemap = new BasemapLayer("Streets");
-      map.addLayer(basemap);
+      vectorBasemapLayer("ArcGIS:Streets", {
+        apiKey: "< YOUR VALID API KEY HERE >", // https://developers.arcgis.com
+      }).addTo(map);
 
       // Add a Feature Layer
       const fl = new FeatureLayer({

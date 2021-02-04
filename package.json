@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "esri-leaflet": "^3.0.0",
+    "esri-leaflet-vector": "^3.0.0",
     "leaflet": "^1.7.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
