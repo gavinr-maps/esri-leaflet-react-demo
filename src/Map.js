@@ -28,7 +28,7 @@ function Map() {
 
       // Add a basemap
       vectorBasemapLayer("ArcGIS:Streets", {
-        apiKey: "< YOUR VALID API KEY HERE >", // https://developers.arcgis.com
+        apiKey: process.env.REACT_APP_ARCGIS_API_KEY, // https://developers.arcgis.com
       }).addTo(map);
 
       // Add a Feature Layer
