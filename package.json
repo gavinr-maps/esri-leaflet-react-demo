@@ -1,6 +1,6 @@
 {
   "name": "esri-leaflet-react-demo",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "homepage": ".",
   "author": {
@@ -8,17 +8,16 @@
     "url": "https://gavinr.com"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
     "esri-leaflet": "^3.0.0",
     "esri-leaflet-vector": "^3.0.0",
     "leaflet": "^1.7.1",
-    "node-sass": "^5.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,7 +13,13 @@ function Map() {
 
   useEffect(() => {
     // debugger;
-    if (mapRef.current !== null) {
+    const mapRefCurrent = mapRef.current;
+
+    if (mapRefCurrent !== null) {
+      // Create a dom node to place the map in, so that cleanup is easier.
+      const domNode = document.createElement("div");
+      mapRefCurrent.appendChild(domNode);
+
       // The default icon does not work due to webpack issues
       let DefaultIcon = new Icon({
         iconUrl: icon,
@@ -23,7 +29,7 @@ function Map() {
       });
       Marker.prototype.options.icon = DefaultIcon;
 
-      const map = new LeafletMap(mapRef.current);
+      const map = new LeafletMap(domNode);
       map.setView([53.35014, -6.266155], 8);
 
       // Add a basemap
@@ -42,6 +48,12 @@ function Map() {
           layer.feature.properties.CITY_NAME
         }</strong><br /> Population: ${layer.feature.properties.POP.toLocaleString("en")}</p>`;
       });
+    }
+
+    return () => {
+      if(mapRefCurrent) {
+        mapRefCurrent.innerHTML = '';
+      }
     }
   }, [mapRef]);
 
