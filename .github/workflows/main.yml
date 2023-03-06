@@ -15,7 +15,7 @@ jobs:
           npm ci
           npm run build
         env:
-          REACT_APP_ARCGIS_API_KEY: ${{ secrets.REACT_APP_ARCGIS_API_KEY }}
+          VITE_ARCGIS_API_KEY: ${{ secrets.ARCGIS_API_KEY }}
           CI: false
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3

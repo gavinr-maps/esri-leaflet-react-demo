@@ -1,4 +1,3 @@
-// @refresh reset
 import { useEffect, useRef } from "react";
 import { Map as LeafletMap, Icon, Marker } from "leaflet";
 import { FeatureLayer } from "esri-leaflet";
@@ -9,7 +8,7 @@ import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 function Map() {
-  const mapRef = useRef(null);
+  const mapRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     // debugger;
@@ -34,7 +33,7 @@ function Map() {
 
       // Add a basemap
       vectorBasemapLayer("ArcGIS:Streets", {
-        apiKey: process.env.REACT_APP_ARCGIS_API_KEY, // https://developers.arcgis.com
+        apiKey: import.meta.env.VITE_ARCGIS_API_KEY, // https://developers.arcgis.com
       }).addTo(map);
 
       // Add a Feature Layer
@@ -43,15 +42,14 @@ function Map() {
           "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer/0",
       }).addTo(map);
 
-      fl.bindPopup(function (layer) {
-        return `<p><strong>${
-          layer.feature.properties.CITY_NAME
-        }</strong><br /> Population: ${layer.feature.properties.POP.toLocaleString("en")}</p>`;
+      fl.bindPopup(function (layer: any) {
+        return `<p><strong>${layer.feature.properties.CITY_NAME
+          }</strong><br /> Population: ${layer.feature.properties.POP.toLocaleString("en")}</p>`;
       });
     }
 
     return () => {
-      if(mapRefCurrent) {
+      if (mapRefCurrent) {
         mapRefCurrent.innerHTML = '';
       }
     }
