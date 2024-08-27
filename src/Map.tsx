@@ -2,7 +2,9 @@ import { useEffect, useRef } from "react";
 import { Map as LeafletMap, Icon, Marker } from "leaflet";
 import { FeatureLayer } from "esri-leaflet";
 import { vectorBasemapLayer } from "esri-leaflet-vector";
+import { geosearch, arcgisOnlineProvider } from "esri-leaflet-geocoder";
 import "leaflet/dist/leaflet.css";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
@@ -46,6 +48,16 @@ function Map() {
         return `<p><strong>${layer.feature.properties.CITY_NAME
           }</strong><br /> Population: ${layer.feature.properties.POP.toLocaleString("en")}</p>`;
       });
+
+      // add the geocoder
+      geosearch({
+        providers: [
+          arcgisOnlineProvider({
+            // API Key to be passed to the ArcGIS Online Geocoding Service
+            apikey: import.meta.env.VITE_ARCGIS_API_KEY, // https://developers.arcgis.com
+          })
+        ]
+      }).addTo(map);
     }
 
     return () => {
